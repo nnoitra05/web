@@ -1,0 +1,77 @@
+
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Album example</h1>
+    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+    <p>
+      <a href="#" class="btn btn-primary my-2">Main call to action</a>
+      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+    </p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+
+
+  <%= line_chart @graph_data %>
+
+
+    <div class="row">
+
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <%# {% include images/movie.png width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %} %>
+          <%= image_tag "movie.png" %>
+          <div class="card-body">
+            <p class="card-text">YouTube</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <%= button_to "View", "https://www.youtube.com/", class: "btn btn-sm btn-outline-secondary" %>
+                <%= button_to "Edit", "#", class: "btn btn-sm btn-outline-secondary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <%# {% include images/code.png width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %} %>
+          <%= image_tag "code.png" %>
+          <div class="card-body">
+            <p class="card-text">GitHub</p>
+             <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              <%= button_to "View", "https://github.com/nnoitra05?tab=repositories", class: "btn btn-sm btn-outline-secondary" %>
+              <%= button_to "Edit", "#", class: "btn btn-sm btn-outline-secondary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <%# {% include images/sns.png width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %} %>
+          <%= image_tag "sns.png" %>
+          <div class="card-body">
+            <p class="card-text">Twitter</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              <%= button_to "View", "https://twitter.com/nnoitra05_tw", class: "btn btn-sm btn-outline-secondary" %>
+              <%= button_to "Edit", "#", class: "btn btn-sm btn-outline-secondary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
