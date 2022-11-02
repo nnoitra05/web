@@ -14,57 +14,35 @@
 <div class="album py-5 bg-light">
   <div class="container">
 
-
-  <%= line_chart @graph_data %>
-
+    <%= line_chart @graph_data %>
 
     <div class="row">
-
-
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <%# {% include images/movie.png width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %} %>
-          <%= image_tag "movie.png" %>
-          <div class="card-body">
-            <p class="card-text">YouTube</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <%= button_to "View", "https://www.youtube.com/", class: "btn btn-sm btn-outline-secondary" %>
-                <%= button_to "Edit", "#", class: "btn btn-sm btn-outline-secondary" %>
+      
+      <% @boards.each_with_index do |board, idx| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <%= image_tag board.image, class: "rounded mx-auto d-block" %>
+            <div class="card-body">
+              <p class="card-text"><%= board[:name] %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= button_to "View", board[:path], class: "btn btn-sm btn-outline-secondary" %>
+                  <%= button_to "Delete", board_path(board[:id]), method: :delete, class: "btn btn-sm btn-outline-secondary" %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <%# {% include images/code.png width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %} %>
-          <%= image_tag "code.png" %>
-          <div class="card-body">
-            <p class="card-text">GitHub</p>
-             <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-              <%= button_to "View", "https://github.com/nnoitra05?tab=repositories", class: "btn btn-sm btn-outline-secondary" %>
-              <%= button_to "Edit", "#", class: "btn btn-sm btn-outline-secondary" %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <% end %>
 
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <%# {% include images/sns.png width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %} %>
-          <%= image_tag "sns.png" %>
+          <%= image_tag "plus.png", class: "rounded mx-auto d-block" %>
           <div class="card-body">
-            <p class="card-text">Twitter</p>
+            <p class="card-text">Add an board</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-              <%= button_to "View", "https://twitter.com/nnoitra05_tw", class: "btn btn-sm btn-outline-secondary" %>
-              <%= button_to "Edit", "#", class: "btn btn-sm btn-outline-secondary" %>
+                <%= button_to "Add", new_board_path, method: :get, class: "btn btn-sm btn-outline-dark" %>
               </div>
             </div>
           </div>

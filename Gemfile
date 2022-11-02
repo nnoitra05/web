@@ -66,5 +66,8 @@ gem "dotenv-rails"
 gem "fitbit_api"
 gem "bootstrap"
 gem "jquery-rails"
+# githubのomniauth用（csrf_protectionはauth時に必要）
+gem "omniauth-github"
+gem "omniauth-rails_csrf_protection"
 # reference: https://chartkick.com/
 gem "chartkick"

@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 
   def index
 
+    @boards = Board.where(user_id: current_user.id)
+
     @client = FitbitAPI::Client.new(
       client_id: "238WGS",
       client_secret: "6074c52e649a43a5bdc05682762c5054",
