@@ -4,6 +4,12 @@ class PagesController < ApplicationController
 
     @boards = Board.where(user_id: current_user.id)
 
+    # @weight_logs = @client.weight_logs("2022-10-10")
+
+  end
+
+  def sandbox
+
     @client = FitbitAPI::Client.new(
       client_id: "238WGS",
       client_secret: "6074c52e649a43a5bdc05682762c5054",
@@ -24,8 +30,6 @@ class PagesController < ApplicationController
         "2022-10-07" => 78.0
       }}
     ]
-
-    # @weight_logs = @client.weight_logs("2022-10-10")
 
   end
 

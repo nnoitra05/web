@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   }
 
   resources :boards, only: [:new, :create, :destroy]
-  resources :pages, only: [:index]
+  resources :pages, only: [:index] do
+    collection do
+      get :sandbox
+    end
+  end
   
 end
