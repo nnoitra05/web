@@ -21,7 +21,7 @@
       <% @boards.each_with_index do |board, idx| %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <%= image_tag board.image, class: "rounded mx-auto d-block" %>
+            <%= image_tag board.image, class: "img-fluid rounded mx-auto d-block" %>
             <div class="card-body">
               <p class="card-text"><%= board[:name] %></p>
               <div class="d-flex justify-content-between align-items-center">
@@ -37,7 +37,7 @@
 
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <%= image_tag "plus.png", class: "rounded mx-auto d-block" %>
+          <%= image_tag "plus.png", class: "img-fluid rounded mx-auto d-block" %>
           <div class="card-body">
             <p class="card-text">Add an board</p>
             <div class="d-flex justify-content-between align-items-center">
