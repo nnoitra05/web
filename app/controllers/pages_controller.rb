@@ -3,33 +3,30 @@ class PagesController < ApplicationController
   def index
 
     @boards = Board.where(user_id: current_user.id)
+    
+    @board = Board.new()
 
-    # @weight_logs = @client.weight_logs("2022-10-10")
+    weight_hash = FetchFitbitInfoService.fetch(FetchFitbitInfoService.apis[:weight])
+    @weight_data = weight_hash[:weight]
+    @min_weight = weight_hash[:min]
+    @max_weight = weight_hash[:max]
+
+    @summary_hash = FetchFitbitInfoService.fetch(FetchFitbitInfoService.apis[:summary])
 
   end
 
   def sandbox
 
-    @client = FitbitAPI::Client.new(
-      client_id: "238WGS",
-      client_secret: "6074c52e649a43a5bdc05682762c5054",
-      access_token: ENV["ACCESS_TOKEN"],
-      refresh_token: ENV["REFRESH_TOKEN"],
-      expires_at: 1234567890,
-      user_id: ENV["USER_ID"]
-    )
+    weight_hash = FetchFitbitInfoService.fetch(FetchFitbitInfoService.apis[:weight])
+    @weight_data = weight_hash[:weight]
+    @min_weight = weight_hash[:min]
+    @max_weight = weight_hash[:max]
 
-    @graph_data = [
-      {name: "weight", data: {
-        "2022-10-01" => 75.0,
-        "2022-10-02" => 80.0,
-        "2022-10-03" => 79.0,
-        "2022-10-04" => 79.0,
-        "2022-10-05" => 79.0,
-        "2022-10-06" => 78.0,
-        "2022-10-07" => 78.0
-      }}
-    ]
+    summary_hash = FetchFitbitInfoService.fetch(FetchFitbitInfoService.apis[:summary])
+    @goal_calories = summary_hash[:goal_calories_out]
+    @current_calories = summary_hash[:current_calories_out]
+    @goal_steps = summary_hash[:goal_steps]
+    @current_steps = summary_hash[:current_steps]
 
   end
 

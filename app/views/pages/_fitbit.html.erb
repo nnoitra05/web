@@ -1,0 +1,11 @@
+
+
+<div class="col-md-6">
+  <%= bar_chart ({today: summary[:current_calories_out], goal: summary[:goal_calories_out]}), colors: ["#0dcaf0", "#6c757d"], label: "Calories", xtitle: "Calories [kcal]" %>
+</div>
+
+<div class="col-md-6">
+  <%= bar_chart ({today: summary[:current_steps], goal: summary[:goal_steps]}), colors: ["#20c997", "#6c757d"], label: "Steps", xtitle: "Steps" %>
+</div>
+
+<%= area_chart @weight_data, min: @min_weight - 2, max: @max_weight + 2, label: "Weights", xtitle: "Date", ytitle: "Weights [kg]" %>

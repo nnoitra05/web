@@ -1,10 +1,33 @@
 
 
+<div class="container jumbotron">
+  <h1 class="jumbotron-heading text-center">SANDBOX</h1>
+</div>
 
 <div class="album py-5 bg-light">
   <div class="container">
-  
-    <%= line_chart @graph_data %>
+
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <%= bar_chart ({today: @current_calories, goal: @goal_calories}), colors: ["#0dcaf0", "#6c757d"], label: "Calories", xtitle: "Calories [kcal]" %>
+
+      </div>
+
+      <div class="col-md-6">
+
+      <%= bar_chart ({today: @current_steps, goal: @goal_steps}), colors: ["#20c997", "#6c757d"], label: "Steps", xtitle: "Steps" %>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <%= area_chart @weight_data, min: @min_weight, max: @max_weight, label: "Weights", xtitle: "Date", ytitle: "Weights [kg]" %>
+
+    </div>
 
   </div>
 </div>
